@@ -1,4 +1,20 @@
-
+<div class="front-page-section-container">
+    <div class="front-page-section-image">
+        <img src="{{ section.settings.image | img_url: '500x'}}" alt="{{ section.settings.image.alt }}">
+    </div>
+    <div class="front-page-section-content-container">
+        {% if section.settings.title != black %}
+            <span class="front-page-section-title">
+                {{section.settings.title}}
+            </span>
+        {% endif %}
+        {% if section.settings.content != black %}
+            <span class="front-page-section-content">
+                {{section.settings.content}}
+            </span>
+        {% endif %}
+    </div>
+</div>
 {% schema %}
 {
     "name": "Front Page Section",
