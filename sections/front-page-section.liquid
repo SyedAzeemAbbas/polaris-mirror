@@ -15,6 +15,36 @@
         {% endif %}
     </div>
 </div>
+{% stylesheet %}
+.front-page-section-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+.front-page-section-image {
+    width: 40%;
+}
+.front-page-section-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0.7%;
+}
+.front-page-section-title {
+    font-size: 30px;
+}
+.front-page-section-content {
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 10px 0;
+}
+    
+{% endstylesheet %}
 {% schema %}
 {
     "name": "Front Page Section",
