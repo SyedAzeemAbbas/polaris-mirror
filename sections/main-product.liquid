@@ -7,6 +7,7 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -23,6 +24,24 @@
   {%- endstyle -%}
 
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script>
+    var settings = {
+  "url": "https://1dfsx2nwel.execute-api.us-east-1.amazonaws.com/dev/",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "'x-aws-key'": " '4gSzevX1zzaq62FhdtQJF714c35Ke5L63qaQvjwK',",
+    "'Content-Type'": " 'application/json'",
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+  },
+  "data": "{\n\"cart\": {\n\"customer\": {\n\"email\": \"janetest@xyz.com\",\n\"name\": \"Jane Test\",\n\"delivery_address\": {\n\"name\": \"Jane Test\",\n\"phone\": \"918-444-6957\",\n\"line_1\": \"8957 S River Ave\",\n\"line_2\": \"\",\n\"city\": \"Dallas\",\n\"state\": \"TX\",\n\"zip\": \"74845\",\n\"country\": \"US\"\n}\n},\n\"items\": [\n{\n\"sku\": \"500703822-1010\"\n},\n{\n\"sku\": \"500703822-1010\"\n},\n{\n\"sku\": \"500442999-8050\"\n},\n{\n\"sku\": \"500442999-8050\"\n},\n{\n\"sku\": \"500442999-8050\"\n},\n{\n\"sku\": \"500776578-1050\"\n},\n{\n\"sku\": \"500801978-1010\"\n},\n{\n\"sku\": \"500776578-1010\"\n},\n{\n\"sku\": \"500100071-1010\"\n}\n]\n}\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+  </script>
 
   {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
   {%- if first_3d_model -%}
